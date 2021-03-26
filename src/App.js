@@ -6,7 +6,9 @@ function App() {
   let [text, setText] = useState(null);
 
   useEffect(() => {
-    console.log("File recieved:\n" + text);
+    if(text) {
+      console.log("File received:\n" + text);
+    }
   }, [text]);
 
   function dropHandler(e) {
@@ -15,7 +17,6 @@ function App() {
     let reader = new FileReader();
 
     reader.onload = (e) => {
-      // console.log(e.target.result);
       setText(e.target.result);
     };
     reader.readAsText(file);
