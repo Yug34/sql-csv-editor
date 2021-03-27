@@ -2,6 +2,7 @@ import "./App.css";
 // import {useState} from "react/cjs/react.production.min";
 import React, {useEffect, useState} from "react"
 import Editor from "./Components/Editor";
+import alasql from "alasql";
 
 function App() {
   let [data, setData] = useState(null);
@@ -12,14 +13,20 @@ function App() {
   }
 
   useEffect(() => {
-      fetch("https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/orders.csv")
+      fetch("https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/order_details.csv")
           .then(res => res.text())
           .then(result => setData(result));
   }, []);
 
   useEffect(() => {
     if(data) {
-      console.log("File received:\n" + data);
+        alasql.promise(`SELECT * FROM CSV(?, {headers: true, separator:","})`, [data])
+            .then(function (data) {
+                console.log(data);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
     }
   }, [data]);
 
