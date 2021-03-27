@@ -3,16 +3,16 @@ import React from "react";
 import "../css/Editor.css";
 
 function Editor(props) {
-    return (
-        <div>
-            <input
-                type="text"
-                value={props.query}
-                placeholder="Enter query here"
-                onChange={e => props.queryChangeHandler(e)}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <input
+        type="text"
+        value={props.query}
+        placeholder="Enter query here"
+        onChange={(e) => props.queryChangeHandler(e)}
+      />
+    </div>
+  );
 }
 
 export default Editor;
