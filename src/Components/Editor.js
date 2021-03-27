@@ -1,5 +1,6 @@
 // import {useState} from "react/cjs/react.production.min";
 import React from "react";
+import "../css/Editor.css";
 
 function Editor(props) {
     return (

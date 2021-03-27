@@ -1,15 +1,25 @@
-import "./App.css";
+import "./css/App.css";
 // import {useState} from "react/cjs/react.production.min";
 import React, {useEffect, useState} from "react"
 import Editor from "./Components/Editor";
 import alasql from "alasql";
+import UploadCSV from "./Components/UploadCSV";
 
 function App() {
   let [data, setData] = useState(null);
-  let [query, setQuery] = useState("");
+  let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID=11`);
+  let [result, setResult] = useState(null);
 
   function queryChangeHandler(e) {
     setQuery(e.target.value);
+  }
+
+  function showUpload() {
+      document.getElementById("myModal").style.display = "block"
+  }
+
+  function hideUpload() {
+      document.getElementById("myModal").style.display = "none"
   }
 
   useEffect(() => {
@@ -20,15 +30,16 @@ function App() {
 
   useEffect(() => {
     if(data) {
-        alasql.promise(`SELECT * FROM CSV(?, {headers: true, separator:","})`, [data])
+        alasql.promise(`${query}`, [data])
             .then(function (data) {
-                console.log(data);
+                setResult(data);
+                console.log(data)
             })
             .catch(function (err) {
                 console.log(err);
             });
     }
-  }, [data]);
+  }, [data, query]);
 
   function dropHandler(e) {
     e.preventDefault();
@@ -47,10 +58,11 @@ function App() {
 
   return (
     <div id="App">
+      <UploadCSV showUpload={showUpload} hideUpload={hideUpload} dropHandler={dropHandler} dragOverHandler={dragOverHandler}/>
       <div id="drop_zone" onDrop={(e) => dropHandler(e)} onDragOver={e => dragOverHandler(e)}>
         <p>Drag a file here!</p>
       </div>
-      <Editor query={query} queryChangeHandler={queryChangeHandler}/>
+      <Editor query={query} queryChangeHandler={queryChangeHandler} />
     </div>
   );
 }
