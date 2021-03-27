@@ -1,15 +1,27 @@
 import "./App.css";
 // import {useState} from "react/cjs/react.production.min";
 import React, {useEffect, useState} from "react"
+import Editor from "./Components/Editor";
 
 function App() {
-  let [text, setText] = useState(null);
+  let [data, setData] = useState(null);
+  let [query, setQuery] = useState("");
+
+  function queryChangeHandler(e) {
+    setQuery(e.target.value);
+  }
 
   useEffect(() => {
-    if(text) {
-      console.log("File received:\n" + text);
+      fetch("https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/orders.csv")
+          .then(res => res.text())
+          .then(result => setData(result));
+  }, []);
+
+  useEffect(() => {
+    if(data) {
+      console.log("File received:\n" + data);
     }
-  }, [text]);
+  }, [data]);
 
   function dropHandler(e) {
     e.preventDefault();
@@ -17,7 +29,7 @@ function App() {
     let reader = new FileReader();
 
     reader.onload = (e) => {
-      setText(e.target.result);
+      setData(e.target.result);
     };
     reader.readAsText(file);
   }
@@ -27,9 +39,11 @@ function App() {
   }
 
   return (
-    <div id="drop_zone" onDrop={(e) => dropHandler(e)} onDragOver={e => dragOverHandler(e)}>
-      <p>Drag a file here!</p>
-      {text?<p>{text}</p>:<p>Drag a file here yo!</p>}
+    <div id="App">
+      <div id="drop_zone" onDrop={(e) => dropHandler(e)} onDragOver={e => dragOverHandler(e)}>
+        <p>Drag a file here!</p>
+      </div>
+      <Editor query={query} queryChangeHandler={queryChangeHandler}/>
     </div>
   );
 }
