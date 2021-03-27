@@ -5,9 +5,14 @@ import Editor from "./Components/Editor";
 import alasql from "alasql";
 import UploadCSV from "./Components/UploadCSV";
 
+//TODO: project todos:-
+//    - Style the drop modal, warn when uploaded file is not a CSV
+//    - NOT ADD REDUX MATE, YOU DON'T NEED IT
+
 function App() {
   let [data, setData] = useState(null);
   let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID=11`);
+  //Todo: add a result display instead of console logging
   let [result, setResult] = useState(null);
 
   function queryChangeHandler(e) {
@@ -59,9 +64,6 @@ function App() {
   return (
     <div id="App">
       <UploadCSV showUpload={showUpload} hideUpload={hideUpload} dropHandler={dropHandler} dragOverHandler={dragOverHandler}/>
-      <div id="drop_zone" onDrop={(e) => dropHandler(e)} onDragOver={e => dragOverHandler(e)}>
-        <p>Drag a file here!</p>
-      </div>
       <Editor query={query} queryChangeHandler={queryChangeHandler} />
     </div>
   );
