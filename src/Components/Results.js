@@ -1,6 +1,7 @@
 // import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
 import "../css/Results.css";
+import userEvent from "@testing-library/user-event";
 
 function Results(props) {
   let [resultList, setResultList] = useState(null);
@@ -14,8 +15,15 @@ function Results(props) {
         );
       }
 
+      props.results.map((result) => {
+        console.log(result);
+        for (const item in result) {
+          console.log(result[item]);
+        }
+      })
+
       setResultList(
-        props.results.map((result) => (
+        props.results.map((result, index) => (
           <tr key={result.orderID}>
             <th>{result.orderID}</th>
             <th>{result.productID}</th>
@@ -30,17 +38,25 @@ function Results(props) {
 
   useEffect(() => {
     if (header) {
-      for (let i = 0; i < props.results.length; i++) {
-        for (let j = 0; j < header.length; j++) {
-          console.log(
-              header[j].key +
-              ": " +
-              props.results[i][`${header[j].key}`]
-          );
-        }
-      }
+      // for (let i = 0; i < props.results.length; i++) {
+      //   for (let j = 0; j < header.length; j++) {
+      //     console.log(
+      //       header[j].key + ": " + props.results[i][`${header[j].key}`]
+      //     );
+      //   }
+      // }
+
+      // let results = [];
+      // for (const res of props.results) {
+      //   let arr = [];
+      //   for (const ele of header) {
+      //     arr.push(res[ele.key]);
+      //   }
+      //   results.push(arr);
+      // }
     }
   }, [header]);
+  //TODO: Dependencies
 
   return (
     <div>
