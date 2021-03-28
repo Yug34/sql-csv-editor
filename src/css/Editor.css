@@ -1,0 +1,12 @@
+.editor {
+    margin-right: 0;
+    display: block;
+    height: 25vh;
+    width: 50vw;
+}
+
+.editor .editorInput {
+    padding-top: 0px;
+    height: 100%;
+    width: 100%;
+}

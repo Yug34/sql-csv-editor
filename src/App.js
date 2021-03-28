@@ -43,7 +43,6 @@ function App() {
         .promise(`${query}`, [data])
         .then(function (data) {
           setResult(data);
-          // console.log(data);
         })
         .catch(function (err) {
           console.log(err);

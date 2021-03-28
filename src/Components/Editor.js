@@ -4,8 +4,9 @@ import "../css/Editor.css";
 
 function Editor(props) {
   return (
-    <div>
+    <div className="editor">
       <input
+        className="editorInput"
         type="text"
         value={props.query}
         placeholder="Enter query here"

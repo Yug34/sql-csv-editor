@@ -11,15 +11,15 @@ function Results(props) {
     if (props.results) {
       if (props.results[0]) {
         setHeader(
-            Object.keys(props.results[0]).map((key) => <th key={key}>{key}</th>),
+            Object.keys(props.results[0]).map((key) => <th className="headerItem" key={key}>{key}</th>),
         );
       }
 
       setResultList(
           props.results.map((result, index) => (
-              <tr key={uniqid()}>
+              <tr className="tableRow" key={uniqid()}>
                 {Object.keys(result).map((item, index) => {
-                  return <th key={index}>{result[item]}</th>;
+                  return <th className="tableItem" key={index}>{result[item]}</th>;
                 })}
               </tr>
           )),
@@ -28,12 +28,12 @@ function Results(props) {
   }, [props.results]);
 
   return (
-      <div>
-        <table>
-          <thead>
-          <tr>{header}</tr>
+      <div className="results">
+        <table className="resultsTable">
+          <thead className="tableHead">
+            <tr className="headerRow">{header}</tr>
           </thead>
-          <tbody>{resultList}</tbody>
+          <tbody className="tableBody">{resultList}</tbody>
         </table>
       </div>
   );

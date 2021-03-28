@@ -1,0 +1,34 @@
+.results {
+    display: inline-block;
+    width: 50vw;
+    height: 70vh;
+}
+
+.results .resultTable {
+    width: 100%;
+    height: 100%;
+}
+
+.results .resultTable .tableHead {
+
+}
+
+.results .resultTable .tableHead .headerRow {
+
+}
+
+.results .resultTable .tableHead .headerRow .headerItem {
+
+}
+
+.results .resultTable .tableBody {
+
+}
+
+.results .resultTable .tableBody .tableRow {
+
+}
+
+.results .resultTable .tableBody .tableRow .tableItem {
+
+}
