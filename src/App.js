@@ -8,14 +8,11 @@ import Results from "./Components/Results";
 
 //TODO: project todos:-
 //    - Style the drop modal, warn when uploaded file is not a CSV
-//    - NOT ADD REDUX MATE, YOU DON'T NEED IT
-
+//    - UploadCSV, make it work with links, as well as pasting the file contents
+//    - Results, ability to download query results as a CSV again!
 function App() {
   let [data, setData] = useState(null);
-  let [query, setQuery] = useState(`SELECT *
-                                      FROM CSV(?, {headers: true, separator:","})
-                                      WHERE productID = 11`);
-  //Todo: add a result display instead of console logging
+  let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
   let [result, setResult] = useState(null);
 
   function queryChangeHandler(e) {

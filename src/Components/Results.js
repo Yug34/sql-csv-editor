@@ -1,7 +1,6 @@
 // import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
 import "../css/Results.css";
-import userEvent from "@testing-library/user-event";
 
 function Results(props) {
   let [resultList, setResultList] = useState(null);
