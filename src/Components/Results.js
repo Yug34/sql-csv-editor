@@ -1,6 +1,7 @@
 // import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
 import "../css/Results.css";
+import uniqid from "uniqid";
 
 function Results(props) {
   let [resultList, setResultList] = useState(null);
@@ -16,7 +17,7 @@ function Results(props) {
 
       setResultList(
           props.results.map((result, index) => (
-              <tr key={result.orderID}>
+              <tr key={uniqid()}>
                 {Object.keys(result).map((item, index) => {
                   return <th key={index}>{result[item]}</th>;
                 })}

@@ -10,6 +10,8 @@ import Results from "./Components/Results";
 //    - Style the drop modal, warn when uploaded file is not a CSV
 //    - UploadCSV, make it work with links, as well as pasting the file contents
 //    - Results, ability to download query results as a CSV again!
+//    - Optimize load time, react.production.min?
+
 function App() {
   let [data, setData] = useState(null);
   let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
