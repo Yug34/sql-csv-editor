@@ -11,27 +11,30 @@ function Results(props) {
     if (props.results) {
       if (props.results[0]) {
         setHeader(
-          Object.keys(props.results[0]).map((key) => <th key={key}>{key}</th>)
+            Object.keys(props.results[0]).map((key) => <th key={key}>{key}</th>),
         );
       }
 
-      props.results.map((result) => {
-        console.log(result);
-        for (const item in result) {
-          console.log(result[item]);
-        }
-      })
+      // props.results.map((result) => {
+      //   console.log(result);
+      //   for (const item in result) {
+      //     console.log(result[item]);
+      //   }
+      // });
 
       setResultList(
-        props.results.map((result, index) => (
-          <tr key={result.orderID}>
-            <th>{result.orderID}</th>
+          props.results.map((result, index) => (
+              <tr key={result.orderID}>
+                {Object.keys(result).map((item, index) => {
+                  return <th key={index}>{result[item]}</th>;
+                })}
+                {/* <th>{result.orderID}</th>
             <th>{result.productID}</th>
             <th>{result.unitPrice}</th>
             <th>{result.quantity}</th>
-            <th>{result.discount}</th>
-          </tr>
-        ))
+            <th>{result.discount}</th> */}
+              </tr>
+          )),
       );
     }
   }, [props.results]);
@@ -45,7 +48,6 @@ function Results(props) {
       //     );
       //   }
       // }
-
       // let results = [];
       // for (const res of props.results) {
       //   let arr = [];
@@ -59,14 +61,14 @@ function Results(props) {
   //TODO: Dependencies
 
   return (
-    <div>
-      <table>
-        <thead>
+      <div>
+        <table>
+          <thead>
           <tr>{header}</tr>
-        </thead>
-        <tbody>{resultList}</tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>{resultList}</tbody>
+        </table>
+      </div>
   );
 }
 
