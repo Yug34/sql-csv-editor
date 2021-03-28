@@ -15,50 +15,17 @@ function Results(props) {
         );
       }
 
-      // props.results.map((result) => {
-      //   console.log(result);
-      //   for (const item in result) {
-      //     console.log(result[item]);
-      //   }
-      // });
-
       setResultList(
           props.results.map((result, index) => (
               <tr key={result.orderID}>
                 {Object.keys(result).map((item, index) => {
                   return <th key={index}>{result[item]}</th>;
                 })}
-                {/* <th>{result.orderID}</th>
-            <th>{result.productID}</th>
-            <th>{result.unitPrice}</th>
-            <th>{result.quantity}</th>
-            <th>{result.discount}</th> */}
               </tr>
           )),
       );
     }
   }, [props.results]);
-
-  useEffect(() => {
-    if (header) {
-      // for (let i = 0; i < props.results.length; i++) {
-      //   for (let j = 0; j < header.length; j++) {
-      //     console.log(
-      //       header[j].key + ": " + props.results[i][`${header[j].key}`]
-      //     );
-      //   }
-      // }
-      // let results = [];
-      // for (const res of props.results) {
-      //   let arr = [];
-      //   for (const ele of header) {
-      //     arr.push(res[ele.key]);
-      //   }
-      //   results.push(arr);
-      // }
-    }
-  }, [header]);
-  //TODO: Dependencies
 
   return (
       <div>
