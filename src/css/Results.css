@@ -1,7 +1,10 @@
 .results {
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: nowrap;
     width: 50vw;
-    height: 70vh;
+    height: 90vh;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .results .resultTable {

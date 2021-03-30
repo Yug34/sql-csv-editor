@@ -4,8 +4,10 @@ import "../css/UploadCSV.css";
 
 function UploadCSV(props) {
   return (
-    <div>
-      <button onClick={props.showUpload}>Upload CSV</button>
+    <div className="upload">
+      <button onClick={props.showUpload} className="uploadBtn">
+        Upload CSV
+      </button>
       <div
         id="myModal"
         className="modal"
