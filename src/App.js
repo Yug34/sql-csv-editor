@@ -17,6 +17,7 @@ function App() {
   let [data, setData] = useState(null);
   let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
   let [result, setResult] = useState(null);
+  let [err, setErr] = useState(null);
 
   function queryChangeHandler(e, bool = false) {
     if (bool) {
@@ -52,7 +53,7 @@ function App() {
           setResult(data);
         })
         .catch(function (err) {
-          console.log(err);
+          setErr(err.message);
         });
     }
   }, [data, query]);
@@ -82,6 +83,7 @@ function App() {
       />
       <div style={{"display": "flex"}}>
         <Editor query={query} queryChangeHandler={queryChangeHandler} />
+        <div style={{"display": "inline-flex", "height": "25vh", "width": "50vw"}}>{err}</div>
         <Results results={result} />
       </div>
     </div>
