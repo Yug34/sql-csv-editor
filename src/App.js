@@ -1,10 +1,13 @@
 import "./css/App.css";
+import "./css/Editor.css";
 // import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
-import Editor from "./Components/Editor";
 import alasql from "alasql";
 import UploadCSV from "./Components/UploadCSV";
 import Results from "./Components/Results";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-sql";
+import "ace-builds/src-noconflict/theme-monokai";
 
 //TODO: project todos:-
 //    - Style the drop modal, warn when uploaded file is not a CSV
@@ -79,7 +82,31 @@ function App() {
         dragOverHandler={dragOverHandler}
       />
       <div style={{"display": "flex"}}>
-        <Editor query={query} queryChangeHandler={queryChangeHandler} />
+        {/*<Editor query={query} queryChangeHandler={queryChangeHandler} />*/}
+        <div className="editor">
+          <AceEditor
+              className="editorInput"
+              placeholder="Enter SQL Query here"
+              mode="sql"
+              theme="monokai"
+              name="sqlTerminal"
+              fontSize={14}
+              showPrintMargin={true}
+              showGutter={true}
+              highlightActiveLine={true}
+              onChange={(e) => queryChangeHandler(e)}
+              value={query}
+              setOptions={{
+                enableBasicAutocompletion: false,
+                enableLiveAutocompletion: false,
+                enableSnippets: false,
+                showLineNumbers: true,
+                tabSize: 2,
+              }}
+              style={{"height": "25vh", "width": "50vw"}}
+          />
+        </div>
+
         <Results results={result} />
       </div>
     </div>

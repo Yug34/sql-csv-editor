@@ -8,12 +8,6 @@ import "ace-builds/src-noconflict/theme-monokai";
 function Editor(props) {
   return (
     <div className="editor">
-      {/*<textarea*/}
-      {/*  className="editorInput"*/}
-      {/*  value={props.query}*/}
-      {/*  placeholder="Enter query here"*/}
-      {/*  onChange={(e) => props.queryChangeHandler(e, true)}*/}
-      {/*/>*/}
       <AceEditor
         className="editorInput"
         placeholder="Enter SQL Query here"
