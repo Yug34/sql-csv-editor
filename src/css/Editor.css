@@ -1,12 +1,15 @@
 .editor {
-
     display: inline-flex;
     flex-wrap: nowrap;
     margin-right: 0;
     width: 50vw;
+    height: 25vh;
 }
 
 .editor .editorInput {
+    resize: none;
+    overflow-x: auto;
+    overflow-y: auto;
     padding-top: 0;
     height: 100%;
     width: 100%;

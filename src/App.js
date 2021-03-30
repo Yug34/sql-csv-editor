@@ -73,8 +73,10 @@ function App() {
         dropHandler={dropHandler}
         dragOverHandler={dragOverHandler}
       />
-      <Editor query={query} queryChangeHandler={queryChangeHandler} />
-      <Results results={result} />
+      <div style={{"display": "flex"}}>
+        <Editor query={query} queryChangeHandler={queryChangeHandler} />
+        <Results results={result} />
+      </div>
     </div>
   );
 }
