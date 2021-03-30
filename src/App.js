@@ -17,8 +17,13 @@ function App() {
   let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
   let [result, setResult] = useState(null);
 
-  function queryChangeHandler(e) {
-    setQuery(e.target.value);
+  function queryChangeHandler(e, bool = false) {
+    if (bool) {
+      setQuery(e.target.value);
+    }
+    else {
+      setQuery(e);
+    }
   }
 
   function showUpload() {
