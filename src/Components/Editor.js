@@ -27,7 +27,7 @@ function Editor(props) {
           showLineNumbers: true,
           tabSize: 2,
         }}
-        style={{"height": "25vh", "width": "50vw"}}
+        style={{ height: "25vh", width: "50vw" }}
       />
     </div>
   );

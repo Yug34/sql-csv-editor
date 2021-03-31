@@ -1,0 +1,5 @@
+.errorDisplay {
+    display: inline-flex;
+    height: 25vh;
+    width: 50vw;
+}

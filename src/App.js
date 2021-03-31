@@ -6,6 +6,7 @@ import alasql from "alasql";
 import UploadCSV from "./Components/UploadCSV";
 import Results from "./Components/Results";
 import Editor from "./Components/Editor";
+import ErrorLogger from "./Components/ErrorLogger";
 
 //TODO: project todos:-
 //    - Style the drop modal, warn when uploaded file is not a CSV
@@ -21,8 +22,7 @@ function App() {
   function queryChangeHandler(e, bool = false) {
     if (bool) {
       setQuery(e.target.value);
-    }
-    else {
+    } else {
       // For code editor
       setQuery(e);
     }
@@ -74,36 +74,36 @@ function App() {
   }
 
   function download() {
-      let downloadResults = [];
-      downloadResults.push(Object.keys(result[0]).join(", "));
-      for(let res of result) {
-          downloadResults.push(Object.values(res).join(", "));
-      }
+    let downloadResults = [];
+    downloadResults.push(Object.keys(result[0]).join(", "));
+    for (let res of result) {
+      downloadResults.push(Object.values(res).join(", "));
+    }
 
-      let blob = new Blob([downloadResults.join("\n")], {type: "text/csv"});
-      let href = window.URL.createObjectURL(blob);
-      let link = document.createElement("a");
-      link.setAttribute("href", href);
-      link.setAttribute("download", "my_data.csv");
-      document.body.appendChild(link);
-      link.click();
+    let blob = new Blob([downloadResults.join("\n")], { type: "text/csv" });
+    let href = window.URL.createObjectURL(blob);
+    let link = document.createElement("a");
+    link.setAttribute("href", href);
+    link.setAttribute("download", "my_data.csv");
+    document.body.appendChild(link);
+    link.click();
   }
 
   return (
     <div id="App">
-      <div style={{"display": "flex"}}>
+      <div style={{ display: "flex" }}>
         <UploadCSV
-            showUpload={showUpload}
-            hideUpload={hideUpload}
-            dropHandler={dropHandler}
-            dragOverHandler={dragOverHandler}
+          showUpload={showUpload}
+          hideUpload={hideUpload}
+          dropHandler={dropHandler}
+          dragOverHandler={dragOverHandler}
         />
         <button onClick={download}>Download</button>
       </div>
-      <div style={{"display": "flex"}}>
+      <div style={{ display: "flex" }}>
         <div>
           <Editor query={query} queryChangeHandler={queryChangeHandler} />
-          <div style={{"display": "inline-flex", "height": "25vh", "width": "50vw"}}>{err}</div>
+          <ErrorLogger error={err}/>
         </div>
         <Results results={result} />
       </div>
