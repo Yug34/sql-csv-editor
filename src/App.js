@@ -10,7 +10,6 @@ import Editor from "./Components/Editor";
 //TODO: project todos:-
 //    - Style the drop modal, warn when uploaded file is not a CSV
 //    - UploadCSV, make it work with links, as well as pasting the file contents
-//    - Results, ability to download query results as a CSV again!
 //    - Optimize load time, react.production.min?
 
 function App() {
@@ -51,6 +50,7 @@ function App() {
         .promise(`${query}`, [data])
         .then(function (data) {
           setResult(data);
+          setErr(null);
         })
         .catch(function (err) {
           setErr(err.message);

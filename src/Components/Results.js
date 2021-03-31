@@ -16,7 +16,7 @@ function Results(props) {
       }
 
       setResultList(
-          props.results.map((result, index) => (
+          props.results.map((result) => (
               <tr className="tableRow" key={uniqid()}>
                 {Object.keys(result).map((item, index) => {
                   return <th className="tableItem" key={index}>{result[item]}</th>;
