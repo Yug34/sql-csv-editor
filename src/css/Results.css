@@ -12,36 +12,10 @@
     height: 100%;
 }
 
-/*tr:nth-child(even) {*/
-/*    background-color: #2F3129;*/
-/*    color: white;*/
-/*}*/
-
-/*tr:nth-child(odd) {*/
-/*    background-color: #272822;*/
-/*    color: white;*/
-/*}*/
-
-.results .resultsTable .tableHead {
-
-}
-
 .results .resultsTable .tableHead .headerRow {
     background-color: #202020;
     font-style: italic;
     color: white;
-}
-
-.results .resultsTable .tableHead .headerRow .headerItem {
-
-}
-
-.results .resultsTable .tableBody {
-
-}
-
-.results .resultsTable .tableBody .tableRow {
-
 }
 
 .results .resultsTable .tableBody .tableRow:nth-child(even) {
@@ -52,8 +26,4 @@
 .results .resultsTable .tableBody .tableRow:nth-child(odd) {
     background-color: #272822;
     color: white;
-}
-
-.results .resultsTable .tableBody .tableRow .tableItem {
-
 }
