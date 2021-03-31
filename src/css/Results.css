@@ -1,6 +1,6 @@
 .results {
-    display: inline-flex;
-    flex-wrap: nowrap;
+    /*display: inline-flex;*/
+    /*flex-wrap: nowrap;*/
     width: 50vw;
     height: 90vh;
     overflow-x: auto;

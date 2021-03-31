@@ -73,17 +73,38 @@ function App() {
     e.preventDefault();
   }
 
+  function download() {
+      let downloadResults = [];
+      downloadResults.push(Object.keys(result[0]).join(", "));
+      for(let res of result) {
+          downloadResults.push(Object.values(res).join(", "));
+      }
+
+      let blob = new Blob([downloadResults.join("\n")], {type: "text/csv"});
+      let href = window.URL.createObjectURL(blob);
+      let link = document.createElement("a");
+      link.setAttribute("href", href);
+      link.setAttribute("download", "my_data.csv");
+      document.body.appendChild(link);
+      link.click();
+  }
+
   return (
     <div id="App">
-      <UploadCSV
-        showUpload={showUpload}
-        hideUpload={hideUpload}
-        dropHandler={dropHandler}
-        dragOverHandler={dragOverHandler}
-      />
       <div style={{"display": "flex"}}>
-        <Editor query={query} queryChangeHandler={queryChangeHandler} />
-        <div style={{"display": "inline-flex", "height": "25vh", "width": "50vw"}}>{err}</div>
+        <UploadCSV
+            showUpload={showUpload}
+            hideUpload={hideUpload}
+            dropHandler={dropHandler}
+            dragOverHandler={dragOverHandler}
+        />
+        <button onClick={download}>Download</button>
+      </div>
+      <div style={{"display": "flex"}}>
+        <div>
+          <Editor query={query} queryChangeHandler={queryChangeHandler} />
+          <div style={{"display": "inline-flex", "height": "25vh", "width": "50vw"}}>{err}</div>
+        </div>
         <Results results={result} />
       </div>
     </div>
