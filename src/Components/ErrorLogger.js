@@ -31,7 +31,10 @@ function ErrorLogger(props) {
                 setOptions={{
                     enableBasicAutocompletion: false,
                     enableSnippets: false,
-                    wrap: true
+                    wrap: true,
+                    hScrollBarAlwaysVisible: false,
+                    vScrollBarAlwaysVisible: false,
+                    cursorStyle: "smooth"
                 }}
                 style={{ height: "25vh", width: "50vw" }}
             />

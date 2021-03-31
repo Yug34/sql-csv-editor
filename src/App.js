@@ -15,7 +15,8 @@ import ErrorLogger from "./Components/ErrorLogger";
 
 function App() {
   let [data, setData] = useState(null);
-  let [query, setQuery] = useState(`SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
+  let [query, setQuery] = useState(`--Enter SQL Query here:
+  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
   let [result, setResult] = useState(null);
   let [err, setErr] = useState(null);
 

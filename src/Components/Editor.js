@@ -25,7 +25,11 @@ function Editor(props) {
           enableLiveAutocompletion: false,
           enableSnippets: false,
           showLineNumbers: true,
+          wrap: true,
+          hScrollBarAlwaysVisible: false,
+          vScrollBarAlwaysVisible: false,
           tabSize: 2,
+          cursorStyle: "smooth"
         }}
         style={{ height: "25vh", width: "50vw" }}
       />

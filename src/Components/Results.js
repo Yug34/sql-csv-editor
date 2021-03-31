@@ -19,7 +19,7 @@ function Results(props) {
           props.results.map((result) => (
               <tr className="tableRow" key={uniqid()}>
                 {Object.keys(result).map((item, index) => {
-                  return <th className="tableItem" key={index}>{result[item]}</th>;
+                  return <td className="tableItem" key={index}>{result[item]}</td>;
                 })}
               </tr>
           )),
