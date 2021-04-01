@@ -10,52 +10,76 @@ function UploadCSV(props) {
       </button>
       <div id="myModal" className="modal">
         <div className="modal-content">
-          <div id="linkContainer" >
-          <div style={{display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", width: '100%', height: '100%'}}>
-            <textarea
-              style={{ width: "40%", height: "70%", resize: "none" }}
-              placeholder="Enter link here"
-              id="linkInput"
-              defaultValue="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/customers.csv"
-            />
-            <button
-              style={{ width: "40%", marginTop: 10, overflowWrap: "break-word" }}
-              onClick={() => {
-                props.uploadViaLink(document.getElementById("linkInput").value);
-                document.getElementById("myModal").style.display = "none";
+          <div id="linkContainer">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
               }}
             >
-              Fetch CSV from link
-            </button>
+              <textarea
+                placeholder="Enter link here"
+                id="linkInput"
+                defaultValue="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/customers.csv"
+              />
+              <button
+                style={{
+                  width: "100%",
+                  height: "10%",
+                  overflowWrap: "break-word",
+                }}
+                onClick={() => {
+                  props.uploadViaLink(
+                    document.getElementById("linkInput").value
+                  );
+                  document.getElementById("myModal").style.display = "none";
+                }}
+              >
+                Fetch CSV from link
+              </button>
             </div>
           </div>
           <div
-            style={{ display: "inline-flex", width: "30%", height: "100%" }}
+            id="dragDrop"
             onDragOver={(e) => props.dragOverHandler(e)}
             onDrop={(e) => props.dropHandler(e)}
           >
             Drag and drop a CSV file here
           </div>
           <div id="csvDataInput">
-            <textarea
+            <div
               style={{
-                display: "block",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "center",
                 width: "100%",
-                height: "80%",
-                resize: "none",
-              }}
-              placeholder="Paste CSV content here"
-              id="enter"
-            />
-            <button
-              style={{ display: "inline-block", height: "10%" }}
-              onClick={() => {
-                props.uploadData(document.getElementById("enter").value);
-                document.getElementById("myModal").style.display = "none";
+                height: "100%",
               }}
             >
-              Enter
-            </button>
+              <textarea
+                placeholder="Paste CSV content here"
+                id="enter"
+              />
+              <button
+                style={{
+                  display: "inline-block",
+                  height: "10%",
+                  width: "100%",
+                  overflowWrap: "break-word",
+                }}
+                onClick={() => {
+                  props.uploadData(document.getElementById("enter").value);
+                  document.getElementById("myModal").style.display = "none";
+                }}
+              >
+                Enter
+              </button>
+            </div>
           </div>
         </div>
         <div

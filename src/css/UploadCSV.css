@@ -6,12 +6,6 @@
 
 }
 
-#linkContainer, #csvDataInput {
-    display: inline-flex;
-    width: 30%;
-    height: 100%;
-}
-
 .upload .modal {
     /*display: none;*/
     display: block;
@@ -29,11 +23,38 @@
 
 .upload .modal .modal-content {
     height: 35vh;
-    background-color: #fefefe;
+    background-color: rgba(0, 0, 0, 0);
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    /*padding: 20px;*/
+    /*border: 1px solid #888;*/
     width: 80%;
+}
+
+#linkContainer, #csvDataInput {
+    display: inline-flex;
+    width: 30%;
+    height: 100%;
+}
+
+#linkInput, #enter {
+    background-color: #2F3129;
+    color: white;
+    width: 100%;
+    height: 90%;
+    resize: none;
+    border: none;
+}
+
+#linkInput:focus, #enter:focus {
+    outline: none;
+}
+
+#dragDrop {
+    display: inline-flex;
+    /*padding: 20px;*/
+    width: 30%;
+    height: 100%;
+    color: white;
 }
 
 .close {
