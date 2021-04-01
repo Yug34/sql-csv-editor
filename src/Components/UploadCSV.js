@@ -1,6 +1,7 @@
 // import {useState} from "react/cjs/react.production.min";
 import React from "react";
 import "../css/UploadCSV.css";
+const logo = require('../img/dropFile.png');
 
 function UploadCSV(props) {
   return (
@@ -20,7 +21,7 @@ function UploadCSV(props) {
       >
         Upload CSV
       </button>
-      <div id="myModal" className="modal">
+      <div id="myModal" className="modal" onClick={props.hideUpload}>
         <div className="modal-content">
           <div id="linkContainer">
             <div
@@ -73,7 +74,8 @@ function UploadCSV(props) {
             onDragOver={(e) => props.dragOverHandler(e)}
             onDrop={(e) => props.dropHandler(e)}
           >
-            Drag and drop a CSV file here
+            {/*Drag and drop a CSV file here*/}
+            {/*<img src={logo}/>*/}
           </div>
           <div id="csvDataInput">
             <div
@@ -128,7 +130,6 @@ function UploadCSV(props) {
             color: "white",
           }}
         >
-          <button onClick={props.hideUpload}>Close</button>
         </div>
       </div>
     </div>
