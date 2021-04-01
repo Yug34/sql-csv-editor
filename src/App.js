@@ -36,8 +36,7 @@ function App() {
     fetch(url)
       .then((res) => res.text())
       .then((result) => setData(result))
-      .then(() => (document.getElementById("myModal").style.display = "block"))
-      .catch(() => console.log("Something went wrong"));
+      .then(() => (document.getElementById("myModal").style.display = "none"));
   }
 
   function showUpload() {
@@ -79,6 +78,7 @@ function App() {
       setData(e.target.result);
     };
     reader.readAsText(file);
+    document.getElementById("myModal").style.display = "none";
   }
 
   function dragOverHandler(e) {

@@ -24,11 +24,10 @@ function UploadCSV(props) {
             />
             <button
               style={{ width: "40%", height: "10%" }}
-              onClick={() =>
-                props.uploadViaLink(
-                  document.getElementById("linkInput").value
-                )
-              }
+              onClick={() => {
+                props.uploadViaLink(document.getElementById("linkInput").value);
+                document.getElementById("myModal").style.display = "none";
+              }}
             >
               Log it!
             </button>
@@ -49,9 +48,10 @@ function UploadCSV(props) {
             />
             <button
               style={{ display: "inline-block", height: "10%" }}
-              onClick={() =>
-                props.uploadData(document.getElementById("enter").value)
-              }
+              onClick={() => {
+                props.uploadData(document.getElementById("enter").value);
+                document.getElementById("myModal").style.display = "none";
+              }}
             >
               Enter
             </button>
