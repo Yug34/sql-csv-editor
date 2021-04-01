@@ -18,7 +18,7 @@ function App() {
   let [query, setQuery] = useState(
     "-- Enter SQL Query here:\n" +
       "-- You can also change the separator\n" +
-      '  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE orderID = 10500'
+      '  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE orderID > 11000'
   );
   let [result, setResult] = useState(null);
   let [err, setErr] = useState(null);
@@ -54,6 +54,13 @@ function App() {
       .then((res) => res.text())
       .then((result) => setData(result));
   }, []);
+
+  // useEffect(() => {
+  //   setQuery("-- Enter SQL Query here:\n" +
+  //       "-- You can also change the separator\n" +
+  //       '  SELECT * FROM CSV(?, {headers: true, separator:","})');
+  //   console.log("It changed!")
+  // }, [data]);
 
   useEffect(() => {
     if (data) {
@@ -115,6 +122,7 @@ function App() {
           dragOverHandler={dragOverHandler}
           uploadViaLink={uploadViaLink}
           uploadData={uploadData}
+          setQuery={setQuery}
         />
         <button onClick={download}>Download</button>
       </div>

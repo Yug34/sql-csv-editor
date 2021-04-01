@@ -33,13 +33,22 @@ function UploadCSV(props) {
                   overflowWrap: "break-word",
                 }}
                 onClick={() => {
+                  if (document.getElementById("linkInput").value === "") {
+                    alert("Dont even try");
+                    return;
+                  }
                   props.uploadViaLink(
                     document.getElementById("linkInput").value
+                  );
+                  props.setQuery(
+                    "-- Enter SQL Query here:\n" +
+                      "-- You can also change the separator\n" +
+                      '  SELECT * FROM CSV(?, {headers: true, separator:","})'
                   );
                   document.getElementById("myModal").style.display = "none";
                 }}
               >
-                Fetch CSV from link
+                Fetch CSV from URL
               </button>
             </div>
           </div>
@@ -61,10 +70,7 @@ function UploadCSV(props) {
                 height: "100%",
               }}
             >
-              <textarea
-                placeholder="Paste CSV content here"
-                id="enter"
-              />
+              <textarea placeholder="Type/paste CSV content here" id="enter" />
               <button
                 style={{
                   display: "inline-block",
@@ -73,11 +79,22 @@ function UploadCSV(props) {
                   overflowWrap: "break-word",
                 }}
                 onClick={() => {
+                    console.log(document.getElementById("enter").value)
+                  if (document.getElementById("enter").value === "") {
+                    //TODO
+                    alert("Don't even try");
+                    return;
+                  }
                   props.uploadData(document.getElementById("enter").value);
+                  props.setQuery(
+                    "-- Enter SQL Query here:\n" +
+                      "-- You can also change the separator\n" +
+                      '  SELECT * FROM CSV(?, {headers: true, separator:","})'
+                  );
                   document.getElementById("myModal").style.display = "none";
                 }}
               >
-                Enter
+                Enter CSV
               </button>
             </div>
           </div>
