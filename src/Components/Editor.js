@@ -7,7 +7,11 @@ import "ace-builds/src-noconflict/theme-monokai";
 
 function Editor(props) {
   return (
-    <div>
+    <div
+      style={{
+        border: "1px solid #555651",
+      }}
+    >
       <div
         style={{
           textAlign: "center",
@@ -38,7 +42,7 @@ function Editor(props) {
             tabSize: 2,
             cursorStyle: "smooth",
           }}
-          style={{ height: "25vh", width: "50vw" }}
+          style={{ height: "45vh", width: "50vw" }}
         />
       </div>
     </div>

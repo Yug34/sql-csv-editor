@@ -76,9 +76,11 @@ function App() {
       setData(e.target.result);
     };
 
-    setQuery("-- Enter SQL Query here:\n" +
+    setQuery(
+      "-- Enter SQL Query here:\n" +
         "-- You can also change the separator\n" +
-        '  SELECT * FROM CSV(?, {headers: true, separator:","})');
+        '  SELECT * FROM CSV(?, {headers: true, separator:","})'
+    );
 
     reader.readAsText(file);
     document.getElementById("myModal").style.display = "none";
@@ -120,7 +122,20 @@ function App() {
           uploadData={uploadData}
           setQuery={setQuery}
         />
-        <button onClick={download}>Download</button>
+        <button
+          className="downloadBtn"
+          onClick={download}
+          style={{
+            backgroundColor: "#2F3129",
+            border: "none",
+            color: "white",
+            fontSize: "16px",
+            height: "2rem",
+            cursor: "pointer",
+          }}
+        >
+          Download
+        </button>
       </div>
       <div style={{ display: "flex" }}>
         <div>

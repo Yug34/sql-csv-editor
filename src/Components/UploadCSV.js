@@ -5,7 +5,18 @@ import "../css/UploadCSV.css";
 function UploadCSV(props) {
   return (
     <div className="upload">
-      <button onClick={props.showUpload} className="uploadBtn">
+      <button
+        onClick={props.showUpload}
+        className="uploadBtn"
+        style={{
+          color: "white",
+          backgroundColor: "#272822",
+          border: "none",
+          fontSize: "16px",
+          height: "2rem",
+          cursor: "pointer",
+        }}
+      >
         Upload CSV
       </button>
       <div id="myModal" className="modal">
@@ -31,6 +42,9 @@ function UploadCSV(props) {
                   width: "100%",
                   height: "10%",
                   overflowWrap: "break-word",
+                  color: "white",
+                  backgroundColor: "#272822",
+                  border: "none",
                 }}
                 onClick={() => {
                   if (document.getElementById("linkInput").value === "") {
@@ -77,6 +91,9 @@ function UploadCSV(props) {
                   height: "10%",
                   width: "100%",
                   overflowWrap: "break-word",
+                  color: "white",
+                  backgroundColor: "#272822",
+                  border: "none",
                 }}
                 onClick={() => {
                   console.log(document.getElementById("enter").value);

@@ -1,7 +1,8 @@
 .results {
+    border: 1px solid #555651;
     background-color: #2F3129;
     width: 50vw;
-    height: 90vh;
+    height: 95vh;
     overflow-x: auto;
     overflow-y: auto;
 }
