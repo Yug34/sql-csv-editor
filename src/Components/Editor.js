@@ -24,7 +24,7 @@ function Editor(props) {
           mode="sql"
           theme="monokai"
           name="blah2"
-          fontSize={14}
+          fontSize={props.fontSize}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}

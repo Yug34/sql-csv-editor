@@ -116,8 +116,8 @@ function App() {
       </div>
       <div style={{ display: "flex" }}>
         <div>
-          <Editor query={query} queryChangeHandler={queryChangeHandler} />
-          <ErrorLogger error={err} />
+          <Editor query={query} queryChangeHandler={queryChangeHandler} fontSize={15} />
+          <ErrorLogger error={err} fontSize={15} />
         </div>
         <Results results={result} />
       </div>

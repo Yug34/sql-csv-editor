@@ -15,34 +15,56 @@ function UploadCSV(props) {
         onDrop={(e) => props.dropHandler(e)}
       >
         <div className="modal-content">
-          <button
-            style={{ display: "inline-flex", width: "30%" }}
-            onClick={() =>
-              props.uploadViaLink(
-                "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
-              )
-            }
-          >
-            Log it!
-          </button>
-          {/*  TODO: put this button elsewhere */}
-          <span className="close" onClick={props.hideUpload}>
-            &times;
-          </span>
-          <div style={{ display: "inline-flex", width: "30%" }}>
-            Drag and drop a CSV file here
-          </div>
-          <div style={{ display: "inline-flex", width: "30%" }}>
+          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
             <textarea
-                style={{ display: "block", width: "100%", resize:"none" }}
-                placeholder="Paste CSV content here"
-                id="enter"
+              style={{ width: "40%", height: "70%", resize: "none" }}
+              placeholder="Enter link here"
             />
             <button
-                style={{display: "block"}}
-                onClick={() => props.uploadData(document.getElementById("enter").value)}
-            >Enter</button>
+              style={{ width: "40%", height: "10%" }}
+              onClick={() =>
+                props.uploadViaLink(
+                  "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
+                )
+              }
+            >
+              Log it!
+            </button>
           </div>
+          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
+            Drag and drop a CSV file here
+          </div>
+          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
+            <textarea
+              style={{
+                display: "block",
+                width: "100%",
+                height: "80%",
+                resize: "none",
+              }}
+              placeholder="Paste CSV content here"
+              id="enter"
+            />
+            <button
+              style={{ display: "inline-block", height: "10%" }}
+              onClick={() =>
+                props.uploadData(document.getElementById("enter").value)
+              }
+            >
+              Enter
+            </button>
+          </div>
+        </div>
+        <div
+          style={{
+            margin: "10px 0 0 0",
+            fontSize: "30px",
+            width: "100%",
+            textAlign: "center",
+            color: "white",
+          }}
+        >
+          <button onClick={props.hideUpload}>Close</button>
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ function ErrorLogger(props) {
           mode="sql"
           theme="monokai"
           name="errorBlah"
-          fontSize={14}
+          fontSize={props.fontSize}
           readOnly={true}
           showPrintMargin={true}
           showGutter={true}
