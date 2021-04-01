@@ -1,4 +1,5 @@
 .results {
+    background-color: #2F3129;
     width: 50vw;
     height: 90vh;
     overflow-x: auto;
@@ -6,6 +7,7 @@
 }
 
 .results .resultsTable {
+    background-color: #2F3129;
     text-align: center;
     border-collapse: collapse;
     width: 100%;
@@ -18,12 +20,19 @@
     color: white;
 }
 
+.results .resultsTable .tableBody .tableRow {
+    color: white;
+
+}
+
+.results .resultsTable .tableBody .tableRow .tableItem {
+
+}
+
 .results .resultsTable .tableBody .tableRow:nth-child(even) {
     background-color: #2F3129;
-    color: white;
 }
 
 .results .resultsTable .tableBody .tableRow:nth-child(odd) {
     background-color: #272822;
-    color: white;
 }

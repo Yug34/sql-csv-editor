@@ -33,7 +33,9 @@ function Results(props) {
           <thead className="tableHead">
             <tr className="headerRow">{header}</tr>
           </thead>
-          <tbody className="tableBody">{resultList}</tbody>
+          <tbody className="tableBody">
+            {resultList}
+          </tbody>
         </table>
       </div>
   );

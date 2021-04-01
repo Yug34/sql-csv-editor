@@ -15,8 +15,9 @@ import ErrorLogger from "./Components/ErrorLogger";
 
 function App() {
   let [data, setData] = useState(null);
-  let [query, setQuery] = useState(`--Enter SQL Query here:
-  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE productID = 11`);
+  let [query, setQuery] = useState("-- Enter SQL Query here:\n" +
+      "-- You can also change the separator\n" +
+  "  SELECT * FROM CSV(?, {headers: true, separator:\",\"}) WHERE orderID = 10500");
   let [result, setResult] = useState(null);
   let [err, setErr] = useState(null);
 
@@ -29,6 +30,12 @@ function App() {
     }
   }
 
+  function uploadViaLink(url) {
+    fetch(url)
+      .then((res) => res.text())
+      .then((result) => setData(result));
+  }
+
   function showUpload() {
     document.getElementById("myModal").style.display = "block";
   }
@@ -39,7 +46,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/order_details.csv"
+      "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
     )
       .then((res) => res.text())
       .then((result) => setData(result));
@@ -74,6 +81,10 @@ function App() {
     e.preventDefault();
   }
 
+  function uploadData(data) {
+    setData(data);
+  }
+
   function download() {
     let downloadResults = [];
     downloadResults.push(Object.keys(result[0]).join(", "));
@@ -98,13 +109,15 @@ function App() {
           hideUpload={hideUpload}
           dropHandler={dropHandler}
           dragOverHandler={dragOverHandler}
+          uploadViaLink={uploadViaLink}
+          uploadData={uploadData}
         />
         <button onClick={download}>Download</button>
       </div>
       <div style={{ display: "flex" }}>
         <div>
           <Editor query={query} queryChangeHandler={queryChangeHandler} />
-          <ErrorLogger error={err}/>
+          <ErrorLogger error={err} />
         </div>
         <Results results={result} />
       </div>

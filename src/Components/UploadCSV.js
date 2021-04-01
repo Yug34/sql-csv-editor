@@ -15,10 +15,34 @@ function UploadCSV(props) {
         onDrop={(e) => props.dropHandler(e)}
       >
         <div className="modal-content">
+          <button
+            style={{ display: "inline-flex", width: "30%" }}
+            onClick={() =>
+              props.uploadViaLink(
+                "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
+              )
+            }
+          >
+            Log it!
+          </button>
+          {/*  TODO: put this button elsewhere */}
           <span className="close" onClick={props.hideUpload}>
             &times;
           </span>
-          <p>TEXTAAAAAAAAAA</p>
+          <div style={{ display: "inline-flex", width: "30%" }}>
+            Drag and drop a CSV file here
+          </div>
+          <div style={{ display: "inline-flex", width: "30%" }}>
+            <textarea
+                style={{ display: "block", width: "100%", resize:"none" }}
+                placeholder="Paste CSV content here"
+                id="enter"
+            />
+            <button
+                style={{display: "block"}}
+                onClick={() => props.uploadData(document.getElementById("enter").value)}
+            >Enter</button>
+          </div>
         </div>
       </div>
     </div>

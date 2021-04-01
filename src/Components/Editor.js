@@ -10,7 +10,7 @@ function Editor(props) {
     <div>
       <div
         style={{
-          "text-align": "center",
+          textAlign: "center",
           color: "white",
           background: "#555651",
         }}
