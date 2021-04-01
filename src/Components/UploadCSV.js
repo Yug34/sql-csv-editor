@@ -10,7 +10,8 @@ function UploadCSV(props) {
       </button>
       <div id="myModal" className="modal">
         <div className="modal-content">
-          <div id="linkContainer">
+          <div id="linkContainer" >
+          <div style={{display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "center", width: '100%', height: '100%'}}>
             <textarea
               style={{ width: "40%", height: "70%", resize: "none" }}
               placeholder="Enter link here"
@@ -18,7 +19,7 @@ function UploadCSV(props) {
               defaultValue="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/customers.csv"
             />
             <button
-              style={{ width: "40%", height: "10%" }}
+              style={{ width: "40%", marginTop: 10, overflowWrap: "break-word" }}
               onClick={() => {
                 props.uploadViaLink(document.getElementById("linkInput").value);
                 document.getElementById("myModal").style.display = "none";
@@ -26,6 +27,7 @@ function UploadCSV(props) {
             >
               Fetch CSV from link
             </button>
+            </div>
           </div>
           <div
             style={{ display: "inline-flex", width: "30%", height: "100%" }}
