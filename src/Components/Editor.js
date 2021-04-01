@@ -31,9 +31,6 @@ function Editor(props) {
           onChange={(e) => props.queryChangeHandler(e)}
           value={props.query}
           setOptions={{
-            enableBasicAutocompletion: false,
-            enableLiveAutocompletion: false,
-            enableSnippets: false,
             showLineNumbers: true,
             wrap: true,
             hScrollBarAlwaysVisible: false,

@@ -15,9 +15,11 @@ import ErrorLogger from "./Components/ErrorLogger";
 
 function App() {
   let [data, setData] = useState(null);
-  let [query, setQuery] = useState("-- Enter SQL Query here:\n" +
+  let [query, setQuery] = useState(
+    "-- Enter SQL Query here:\n" +
       "-- You can also change the separator\n" +
-  "  SELECT * FROM CSV(?, {headers: true, separator:\",\"}) WHERE orderID = 10500");
+      '  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE orderID = 10500'
+  );
   let [result, setResult] = useState(null);
   let [err, setErr] = useState(null);
 
@@ -33,7 +35,9 @@ function App() {
   function uploadViaLink(url) {
     fetch(url)
       .then((res) => res.text())
-      .then((result) => setData(result));
+      .then((result) => setData(result))
+      .then(() => (document.getElementById("myModal").style.display = "block"))
+      .catch(() => console.log("Something went wrong"));
   }
 
   function showUpload() {
@@ -116,7 +120,11 @@ function App() {
       </div>
       <div style={{ display: "flex" }}>
         <div>
-          <Editor query={query} queryChangeHandler={queryChangeHandler} fontSize={15} />
+          <Editor
+            query={query}
+            queryChangeHandler={queryChangeHandler}
+            fontSize={15}
+          />
           <ErrorLogger error={err} fontSize={15} />
         </div>
         <Results results={result} />

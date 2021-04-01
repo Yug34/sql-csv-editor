@@ -38,8 +38,6 @@ function ErrorLogger(props) {
           showGutter={true}
           value={err}
           setOptions={{
-            enableBasicAutocompletion: false,
-            enableSnippets: false,
             wrap: true,
             hScrollBarAlwaysVisible: false,
             vScrollBarAlwaysVisible: false,

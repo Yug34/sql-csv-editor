@@ -19,12 +19,14 @@ function UploadCSV(props) {
             <textarea
               style={{ width: "40%", height: "70%", resize: "none" }}
               placeholder="Enter link here"
+              id="linkInput"
+              defaultValue="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/customers.csv"
             />
             <button
               style={{ width: "40%", height: "10%" }}
               onClick={() =>
                 props.uploadViaLink(
-                  "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
+                  document.getElementById("linkInput").value
                 )
               }
             >
