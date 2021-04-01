@@ -1,6 +1,6 @@
 .upload .modal {
-    display: none;
-    /*display: block;*/
+    /*display: none;*/
+    display: block;
     position: fixed;
     z-index: 1;
     padding-top: 100px;
@@ -41,7 +41,7 @@
     outline: none;
 }
 
-#dragDrop {
+.dragDrop {
     display: inline-flex;
     background-color: #272822;
     margin: 20px;
@@ -49,6 +49,16 @@
     height: 100%;
     color: white;
 }
+
+.dragOverDiv {
+    display: inline-flex;
+    background-color: #373830;
+    margin: 20px;
+    width: 30%;
+    height: 100%;
+    color: white;
+}
+
 
 .close {
     height: 100%;

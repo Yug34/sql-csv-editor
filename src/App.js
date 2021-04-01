@@ -88,6 +88,8 @@ function App() {
 
   function dragOverHandler(e) {
     e.preventDefault();
+    e.target.className = "dragOverDiv";
+    console.log(e.target.className)
   }
 
   function uploadData(data) {
@@ -124,6 +126,7 @@ function App() {
         />
         <button
           className="downloadBtn"
+          id="downloadButton"
           onClick={download}
           style={{
             backgroundColor: "#2F3129",

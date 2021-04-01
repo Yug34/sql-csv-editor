@@ -8,6 +8,7 @@ function UploadCSV(props) {
       <button
         onClick={props.showUpload}
         className="uploadBtn"
+        id="uploadButton"
         style={{
           color: "white",
           backgroundColor: "#272822",
@@ -45,6 +46,7 @@ function UploadCSV(props) {
                   color: "white",
                   backgroundColor: "#272822",
                   border: "none",
+                  cursor: "pointer",
                 }}
                 onClick={() => {
                   if (document.getElementById("linkInput").value === "") {
@@ -67,7 +69,7 @@ function UploadCSV(props) {
             </div>
           </div>
           <div
-            id="dragDrop"
+            className="dragDrop"
             onDragOver={(e) => props.dragOverHandler(e)}
             onDrop={(e) => props.dropHandler(e)}
           >
@@ -94,6 +96,7 @@ function UploadCSV(props) {
                   color: "white",
                   backgroundColor: "#272822",
                   border: "none",
+                  cursor: "pointer",
                 }}
                 onClick={() => {
                   console.log(document.getElementById("enter").value);
