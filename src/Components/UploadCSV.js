@@ -8,14 +8,9 @@ function UploadCSV(props) {
       <button onClick={props.showUpload} className="uploadBtn">
         Upload CSV
       </button>
-      <div
-        id="myModal"
-        className="modal"
-        onDragOver={(e) => props.dragOverHandler(e)}
-        onDrop={(e) => props.dropHandler(e)}
-      >
+      <div id="myModal" className="modal">
         <div className="modal-content">
-          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
+          <div id="linkContainer">
             <textarea
               style={{ width: "40%", height: "70%", resize: "none" }}
               placeholder="Enter link here"
@@ -29,13 +24,17 @@ function UploadCSV(props) {
                 document.getElementById("myModal").style.display = "none";
               }}
             >
-              Log it!
+              Fetch CSV from link
             </button>
           </div>
-          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
+          <div
+            style={{ display: "inline-flex", width: "30%", height: "100%" }}
+            onDragOver={(e) => props.dragOverHandler(e)}
+            onDrop={(e) => props.dropHandler(e)}
+          >
             Drag and drop a CSV file here
           </div>
-          <div style={{ display: "inline-flex", width: "30%", height: "100%" }}>
+          <div id="csvDataInput">
             <textarea
               style={{
                 display: "block",
