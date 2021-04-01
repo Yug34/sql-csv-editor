@@ -9,8 +9,6 @@ import Editor from "./Components/Editor";
 import ErrorLogger from "./Components/ErrorLogger";
 
 //TODO: project todos:-
-//    - Style the drop modal, warn when uploaded file is not a CSV
-//    - UploadCSV, make it work with links, as well as pasting the file contents
 //    - Optimize load time, react.production.min?
 
 function App() {
@@ -55,13 +53,6 @@ function App() {
       .then((result) => setData(result));
   }, []);
 
-  // useEffect(() => {
-  //   setQuery("-- Enter SQL Query here:\n" +
-  //       "-- You can also change the separator\n" +
-  //       '  SELECT * FROM CSV(?, {headers: true, separator:","})');
-  //   console.log("It changed!")
-  // }, [data]);
-
   useEffect(() => {
     if (data) {
       alasql
@@ -84,6 +75,11 @@ function App() {
     reader.onload = (e) => {
       setData(e.target.result);
     };
+
+    setQuery("-- Enter SQL Query here:\n" +
+        "-- You can also change the separator\n" +
+        '  SELECT * FROM CSV(?, {headers: true, separator:","})');
+
     reader.readAsText(file);
     document.getElementById("myModal").style.display = "none";
   }

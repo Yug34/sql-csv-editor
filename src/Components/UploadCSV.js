@@ -79,7 +79,7 @@ function UploadCSV(props) {
                   overflowWrap: "break-word",
                 }}
                 onClick={() => {
-                    console.log(document.getElementById("enter").value)
+                  console.log(document.getElementById("enter").value);
                   if (document.getElementById("enter").value === "") {
                     //TODO
                     alert("Don't even try");
