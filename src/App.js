@@ -89,7 +89,6 @@ function App() {
   function dragOverHandler(e) {
     e.preventDefault();
     e.target.className = "dragOverDiv";
-    console.log(e.target.className)
   }
 
   function uploadData(data) {
@@ -124,19 +123,7 @@ function App() {
           uploadData={uploadData}
           setQuery={setQuery}
         />
-        <button
-          className="downloadBtn"
-          id="downloadButton"
-          onClick={download}
-          style={{
-            backgroundColor: "#2F3129",
-            border: "none",
-            color: "white",
-            fontSize: "16px",
-            height: "2rem",
-            cursor: "pointer",
-          }}
-        >
+        <button id="downloadButton" onClick={download}>
           Download Results
         </button>
       </div>

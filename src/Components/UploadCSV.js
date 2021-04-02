@@ -5,49 +5,20 @@ import "../css/UploadCSV.css";
 function UploadCSV(props) {
   return (
     <div className="upload">
-      <button
-        onClick={props.showUpload}
-        className="uploadBtn"
-        id="uploadButton"
-        style={{
-          color: "white",
-          backgroundColor: "#272822",
-          border: "none",
-          fontSize: "16px",
-          height: "2rem",
-          cursor: "pointer",
-        }}
-      >
+      <button onClick={props.showUpload} id="uploadButton">
         Upload CSV
       </button>
       <div id="myModal" className="modal">
         <div className="modal-content">
           <div id="linkContainer">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                width: "100%",
-                height: "100%",
-              }}
-            >
+            <div id="linkAreaContainer">
               <textarea
                 placeholder="Enter link here"
                 id="linkInput"
                 defaultValue="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/customers.csv"
               />
               <button
-                style={{
-                  width: "100%",
-                  height: "10%",
-                  overflowWrap: "break-word",
-                  color: "white",
-                  backgroundColor: "#272822",
-                  border: "none",
-                  cursor: "pointer",
-                }}
+                id="linkSubmitButton"
                 onClick={() => {
                   if (document.getElementById("linkInput").value === "") {
                     alert("Dont even try");
@@ -73,63 +44,24 @@ function UploadCSV(props) {
             onDragOver={(e) => props.dragOverHandler(e)}
             onDrop={(e) => props.dropHandler(e)}
           >
-            <div style={{
-                // TODO
-                width: "fit-content",
-                height: "2rem",
-                margin: "0 auto",
-                display: "flex",
-                flexDirection: "column"
-            }}>
-                Drag and drop a CSV file here
-            </div>
-            <div style={{
-                // TODO
-                height: "fit-content",
-                display: "block",
-                marginTop: "15%"
-                // flexDirection: "column"
-            }}>
+            <div id="dragTextContainer">Drag and drop a CSV file here</div>
+            <div id="dropImageContainer">
               <img
-                style={{
-                  height: "128px",
-                  width: "128px",
-                  opacity: 0.2
-                }}
+                id="dropImage"
                 src="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/src/img/dropFile.png"
                 alt="dropImage"
               />
             </div>
           </div>
           <div id="csvDataInput">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                width: "100%",
-                height: "100%",
-              }}
-            >
+            <div id="csvInputContainer">
               <textarea placeholder="Type/paste CSV content here" id="enter" />
               <button
-                style={{
-                  display: "inline-block",
-                  height: "10%",
-                  width: "100%",
-                  overflowWrap: "break-word",
-                  color: "white",
-                  backgroundColor: "#272822",
-                  border: "none",
-                  cursor: "pointer",
-                }}
+                id="enterBtn"
                 onClick={() => {
-                  console.log(document.getElementById("enter").value);
                   if (document.getElementById("enter").value === "") {
                     //TODO
                     alert("Don't even try");
-
                     return;
                   }
                   props.uploadData(document.getElementById("enter").value);
@@ -145,16 +77,7 @@ function UploadCSV(props) {
               </button>
             </div>
           </div>
-          <span
-            onClick={props.hideUpload}
-            style={{
-              color: "white",
-              fontWeight: "bold",
-              marginLeft: "20px",
-              fontSize: "50px",
-              cursor: "pointer",
-            }}
-          >
+          <span onClick={props.hideUpload} id="closeModalBtn">
             &times;
           </span>
         </div>
