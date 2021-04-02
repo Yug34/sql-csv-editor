@@ -76,22 +76,26 @@ function UploadCSV(props) {
             onDrop={(e) => props.dropHandler(e)}
           >
             <div style={{
-                width: "100%",
+                // TODO
+                width: "fit-content",
                 height: "2rem",
-                display: "inline-flex"
+                marginLeft: "auto",
+                display: "flex",
+                flexDirection: "column"
             }}>
                 Drag and drop a CSV file here
             </div>
             <div style={{
-                height: "100%",
-                display: "inline-flex"
+                // TODO
+                height: "fit-content",
+                display: "block",
+                // flexDirection: "column"
             }}>
               <img
                 style={{
                   height: "128px",
                   width: "128px",
-                  opacity: 0.2,
-                    marginTop: "50%"
+                  opacity: 0.2
                 }}
                 src="https://raw.githubusercontent.com/Yug34/atlan-asgn/master/src/img/dropFile.png"
                 alt="dropImage"
@@ -126,6 +130,7 @@ function UploadCSV(props) {
                   if (document.getElementById("enter").value === "") {
                     //TODO
                     alert("Don't even try");
+
                     return;
                   }
                   props.uploadData(document.getElementById("enter").value);
@@ -154,16 +159,6 @@ function UploadCSV(props) {
             &times;
           </span>
         </div>
-        {/*<div*/}
-        {/*  style={{*/}
-        {/*    margin: "10px 0 0 0",*/}
-        {/*    fontSize: "30px",*/}
-        {/*    width: "100%",*/}
-        {/*    textAlign: "center",*/}
-        {/*    color: "white",*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*</div>*/}
       </div>
     </div>
   );
