@@ -26,10 +26,6 @@
 
 }
 
-.results .resultsTable .tableBody .tableRow .tableItem {
-
-}
-
 .results .resultsTable .tableBody .tableRow:nth-child(even) {
     background-color: #2F3129;
 }

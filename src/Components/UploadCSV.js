@@ -5,7 +5,7 @@ import "../css/UploadCSV.css";
 function UploadCSV(props) {
   return (
     <div className="upload">
-      <button onClick={props.showUpload} id="uploadButton">
+      <button onClick={() => document.getElementById("myModal").style.display = "block"} id="uploadButton">
         Upload CSV
       </button>
       <div id="myModal" className="modal">
@@ -64,7 +64,7 @@ function UploadCSV(props) {
                     alert("Don't even try");
                     return;
                   }
-                  props.uploadData(document.getElementById("enter").value);
+                  props.setData(document.getElementById("enter").value);
                   props.setQuery(
                     "-- Enter SQL Query here:\n" +
                       "-- You can also change the separator\n" +
@@ -77,7 +77,7 @@ function UploadCSV(props) {
               </button>
             </div>
           </div>
-          <span onClick={props.hideUpload} id="closeModalBtn">
+          <span onClick={() => document.getElementById("myModal").style.display = "none"} id="closeModalBtn">
             &times;
           </span>
         </div>

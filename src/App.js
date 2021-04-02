@@ -12,39 +12,20 @@ import ErrorLogger from "./Components/ErrorLogger";
 //    - Optimize load time, react.production.min?
 
 function App() {
+  // Contents of the CSV file:
   let [data, setData] = useState(null);
+  // Query in the editor:
   let [query, setQuery] = useState(
     "-- Enter SQL Query here:\n" +
       "-- You can also change the separator\n" +
       '  SELECT * FROM CSV(?, {headers: true, separator:","}) WHERE orderID > 11000'
   );
+  // Result data obtained by running the query on the CSV file contents
   let [result, setResult] = useState(null);
+  // Errors in the particular query (Syntax errors, etc)
   let [err, setErr] = useState(null);
 
-  function queryChangeHandler(e, bool = false) {
-    if (bool) {
-      setQuery(e.target.value);
-    } else {
-      // For code editor
-      setQuery(e);
-    }
-  }
-
-  function uploadViaLink(url) {
-    fetch(url)
-      .then((res) => res.text())
-      .then((result) => setData(result))
-      .then(() => (document.getElementById("myModal").style.display = "none"));
-  }
-
-  function showUpload() {
-    document.getElementById("myModal").style.display = "block";
-  }
-
-  function hideUpload() {
-    document.getElementById("myModal").style.display = "none";
-  }
-
+  // On component mount, fetch a default CSV data file
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/Yug34/atlan-asgn/master/dataFiles/order_details.csv"
@@ -53,6 +34,7 @@ function App() {
       .then((result) => setData(result));
   }, []);
 
+  // When file is fetched/changed, run query on the data from the CSV
   useEffect(() => {
     if (data) {
       alasql
@@ -67,6 +49,21 @@ function App() {
     }
   }, [data, query]);
 
+  // Change SQL query
+  function queryChangeHandler(e) {
+    setQuery(e.target.value);
+  }
+
+  // Function to fetch CSV file from given URl
+  // Also closes the modal when data is loaded
+  function uploadViaLink(url) {
+    fetch(url)
+      .then((res) => res.text())
+      .then((result) => setData(result))
+      .then(() => (document.getElementById("myModal").style.display = "none"));
+  }
+
+  // Function to set data from the dragged and dropped file
   function dropHandler(e) {
     e.preventDefault();
     let file = e.dataTransfer.files[0];
@@ -86,15 +83,13 @@ function App() {
     document.getElementById("myModal").style.display = "none";
   }
 
+  // Function to brighten div when file is dragged over it
   function dragOverHandler(e) {
     e.preventDefault();
     e.target.className = "dragOverDiv";
   }
 
-  function uploadData(data) {
-    setData(data);
-  }
-
+  // Function to download the query results as CSV file
   function download() {
     let downloadResults = [];
     downloadResults.push(Object.keys(result[0]).join(", "));
@@ -115,12 +110,10 @@ function App() {
     <div id="App">
       <div style={{ display: "flex" }}>
         <UploadCSV
-          showUpload={showUpload}
-          hideUpload={hideUpload}
           dropHandler={dropHandler}
           dragOverHandler={dragOverHandler}
           uploadViaLink={uploadViaLink}
-          uploadData={uploadData}
+          setData={setData}
           setQuery={setQuery}
         />
         <button id="downloadButton" onClick={download}>
