@@ -3,22 +3,22 @@ import "../css/UploadCSV.css";
 
 function UploadCSV(props) {
   function handleBadInput(warning) {
-      displayDiv("dropImageContainer", "none");
-      displayDiv("dropSvgContainer", "block");
+    displayDiv("dropImageContainer", "none");
+    displayDiv("dropSvgContainer", "block");
     document.getElementById("dragTextContainer").innerText = `${warning}`;
   }
 
   function displayDiv(divName, display) {
-      // Check if the div is referred to through an id
-      if(document.getElementById(divName)) {
-          document.getElementById(divName).style.display = display;
+    // Check if the div is referred to through an id
+    if (document.getElementById(divName)) {
+      document.getElementById(divName).style.display = display;
+    }
+    // If not id, must be a class
+    else {
+      for (let element of document.getElementsByClassName(divName)) {
+        element.style.display = display;
       }
-      // If not id, must be a class
-      else {
-          for (let element of document.getElementsByClassName(divName)) {
-              element.style.display = display;
-          }
-      }
+    }
   }
 
   return (
@@ -44,9 +44,7 @@ function UploadCSV(props) {
                 id="linkSubmitButton"
                 onClick={() => {
                   if (document.getElementById("linkInput").value === "") {
-                    handleBadInput(
-                      "Looks like you entered nothing in the link box, try again!"
-                    );
+                    handleBadInput("Looks like you entered nothing in the link box, try again!");
                     return;
                   }
                   props.uploadViaLink(
