@@ -8,9 +8,6 @@ import Results from "./Components/Results";
 import Editor from "./Components/Editor";
 import ErrorLogger from "./Components/ErrorLogger";
 
-//TODO: project todos:-
-//    - Optimize load time, react.production.min?
-
 function App() {
   // Contents of the CSV file:
   let [data, setData] = useState(null);
