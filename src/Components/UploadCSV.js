@@ -3,8 +3,11 @@ import "../css/UploadCSV.css";
 
 function UploadCSV(props) {
   function handleBadInput(warning) {
+    //Hide drop image
     displayDiv("dropImageContainer", "none");
+    //Show faulty input SVG
     displayDiv("dropSvgContainer", "block");
+    //Display error message in center div
     document.getElementById("dragTextContainer").innerText = `${warning}`;
   }
 
@@ -24,9 +27,7 @@ function UploadCSV(props) {
   return (
     <div className="upload">
       <button
-        onClick={() =>
-          (document.getElementById("myModal").style.display = "block")
-        }
+        onClick={() => (displayDiv("myModal", "block"))}
         id="uploadButton"
       >
         Upload CSV
