@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/atlan-asgn/static/css/main.a800615c.chunk.css",
-    "main.js": "/atlan-asgn/static/js/main.66cccc57.chunk.js",
-    "main.js.map": "/atlan-asgn/static/js/main.66cccc57.chunk.js.map",
+    "main.css": "/atlan-asgn/static/css/main.1f0304ca.chunk.css",
+    "main.js": "/atlan-asgn/static/js/main.c56936b3.chunk.js",
+    "main.js.map": "/atlan-asgn/static/js/main.c56936b3.chunk.js.map",
     "runtime-main.js": "/atlan-asgn/static/js/runtime-main.62c9e3b4.js",
     "runtime-main.js.map": "/atlan-asgn/static/js/runtime-main.62c9e3b4.js.map",
-    "static/js/2.d1eae76b.chunk.js": "/atlan-asgn/static/js/2.d1eae76b.chunk.js",
-    "static/js/2.d1eae76b.chunk.js.map": "/atlan-asgn/static/js/2.d1eae76b.chunk.js.map",
+    "static/js/2.35213042.chunk.js": "/atlan-asgn/static/js/2.35213042.chunk.js",
+    "static/js/2.35213042.chunk.js.map": "/atlan-asgn/static/js/2.35213042.chunk.js.map",
     "index.html": "/atlan-asgn/index.html",
-    "static/css/main.a800615c.chunk.css.map": "/atlan-asgn/static/css/main.a800615c.chunk.css.map",
-    "static/js/2.d1eae76b.chunk.js.LICENSE.txt": "/atlan-asgn/static/js/2.d1eae76b.chunk.js.LICENSE.txt"
+    "static/css/main.1f0304ca.chunk.css.map": "/atlan-asgn/static/css/main.1f0304ca.chunk.css.map",
+    "static/js/2.35213042.chunk.js.LICENSE.txt": "/atlan-asgn/static/js/2.35213042.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.62c9e3b4.js",
-    "static/js/2.d1eae76b.chunk.js",
-    "static/css/main.a800615c.chunk.css",
-    "static/js/main.66cccc57.chunk.js"
+    "static/js/2.35213042.chunk.js",
+    "static/css/main.1f0304ca.chunk.css",
+    "static/js/main.c56936b3.chunk.js"
   ]
 }
