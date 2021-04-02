@@ -137,7 +137,7 @@ function App() {
             cursor: "pointer",
           }}
         >
-          Download
+          Download Results
         </button>
       </div>
       <div style={{ display: "flex" }}>
