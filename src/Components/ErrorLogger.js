@@ -1,4 +1,3 @@
-// import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
 import "../css/ErrorLogger.css";
 import AceEditor from "react-ace";

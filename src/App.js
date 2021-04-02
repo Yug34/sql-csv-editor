@@ -1,6 +1,5 @@
 import "./css/App.css";
 import "./css/Editor.css";
-// import {useState} from "react/cjs/react.production.min";
 import React, { useEffect, useState } from "react";
 import alasql from "alasql";
 import UploadCSV from "./Components/UploadCSV";
@@ -44,6 +43,10 @@ function App() {
           setErr(err.message);
         });
     }
+
+    document.getElementById("dropImageContainer").style.display = "block";
+    document.getElementById("dropSvgContainer").style.display = "none";
+    document.getElementById("dragTextContainer").innerText = "Drag and drop a CSV file here!";
   }, [data, query]);
 
   // Change SQL query

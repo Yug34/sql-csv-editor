@@ -76,10 +76,16 @@
 }
 
 #dropImageContainer {
-    height: fit-content;
     display: block;
+    height: fit-content;
     margin-top: 15%;
     /*flexDirection: "column"*/
+}
+
+#dropSvgContainer {
+    display: none;
+    height: fit-content;
+    margin-top: 15%;
 }
 
 #closeModalBtn {

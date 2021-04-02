@@ -1,4 +1,3 @@
-// import {useState} from "react/cjs/react.production.min";
 import React from "react";
 import "../css/Editor.css";
 import AceEditor from "react-ace";
