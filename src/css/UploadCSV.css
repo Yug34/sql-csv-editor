@@ -43,6 +43,8 @@
 
 .dragDrop {
     display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #272822;
     margin: 20px;
     width: 30%;
@@ -52,6 +54,8 @@
 
 .dragOverDiv {
     display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #373830;
     margin: 20px;
     width: 30%;

@@ -2,8 +2,6 @@
 import React from "react";
 import "../css/UploadCSV.css";
 
-const logo = require("../img/dropFile.png");
-
 function UploadCSV(props) {
   return (
     <div className="upload">
@@ -79,7 +77,7 @@ function UploadCSV(props) {
                 // TODO
                 width: "fit-content",
                 height: "2rem",
-                marginLeft: "auto",
+                margin: "0 auto",
                 display: "flex",
                 flexDirection: "column"
             }}>
@@ -89,6 +87,7 @@ function UploadCSV(props) {
                 // TODO
                 height: "fit-content",
                 display: "block",
+                marginTop: "15%"
                 // flexDirection: "column"
             }}>
               <img
