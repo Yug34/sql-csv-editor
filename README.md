@@ -4,6 +4,7 @@
 - Measured from the developer console of Chrome
 
 ## Steps taken to reduce load time:
+- ### Used Webpack to minify bundle
 - ### Used CSS instead of CSS in JS(X) 
   - CSS can be fetched in parallel with the browser
   - Eliminate the need of the styled components library (saves 43Kb)
