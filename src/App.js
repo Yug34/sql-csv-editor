@@ -50,8 +50,13 @@ function App() {
   }, [data, query]);
 
   // Change SQL query
-  function queryChangeHandler(e) {
-    setQuery(e.target.value);
+  function queryChangeHandler(e, bool = false) {
+    if (bool) {
+      setQuery(e.target.value);
+    } else {
+      // For code editor
+      setQuery(e);
+    }
   }
 
   // Function to fetch CSV file from given URl
