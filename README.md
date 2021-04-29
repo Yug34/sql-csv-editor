@@ -1,5 +1,7 @@
 # SQLEditor 
 
+todo: change from atlan-asgn to sql-csv-editor in gh-pages branch -_-
+
 ## Load time of the app: ~350ms
 - Measured from the developer console of Chrome
 
