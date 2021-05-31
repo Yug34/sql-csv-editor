@@ -1,5 +1,7 @@
 # SQLEditor 
 
+A react app I made for the application process at Atlan.
+
 ## Load time of the app: ~350ms
 - Measured from the developer console of Chrome
 
