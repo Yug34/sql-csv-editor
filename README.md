@@ -1,4 +1,4 @@
-# SQLEditor 
+# CSVQL | Real-time, fully client-side SQL querying on CSVs
 
 A simple web-app made in React that lets you query CSV files on the client-side, without making any HTTP requests to a server.
 
